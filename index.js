@@ -49,7 +49,17 @@ app.get('/lire', function (req, res) {
 });
 
 let readSocket;
+const devices = PvRecorder.getAvailableDevices();
+let deviceIndex = 0;
+
 io.on('connection', (socket) => {
+  socket.emit('devicesList', devices);
+
+  socket.on('selectDevice', (index) => {
+    deviceIndex = index;
+    console.log(`device : ${devices[deviceIndex]}`);
+  });
+
   socket.on('start', () => {
     isInterrupted = false;
     record();
@@ -97,7 +107,7 @@ async function record() {
   const wav = new WaveFile();
   const frames = [];
   const frameLength = 512;
-  const recorder = new PvRecorder(frameLength, 0);
+  const recorder = new PvRecorder(frameLength, deviceIndex);
   let outputWavFile;
   console.log(`Using PvRecorder version: ${recorder.version}`);
   recorder.start();

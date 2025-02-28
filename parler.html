@@ -13,6 +13,9 @@
     <button onclick="start()" id="start">S'enregistrer</button>
     <button onclick="stop()" id="stop" style="display: none">Terminer</button>
   </section>
+  <section>
+    <div id="devices-list"></div>
+  </section>
 </body>
 </html>
 
@@ -23,14 +26,27 @@
       stopButton = document.getElementById('stop');
 
   function start () {
-    startButton.display = "none";
-    stopButton.display = "block";
+    startButton.style.display = "none";
+    stopButton.style.display = "block";
     socket.emit('start')
   }
 
   function stop () {
-    startButton.display = "block";
-    stopButton.display = "none";
+    startButton.style.display = "block";
+    stopButton.style.display = "none";
     socket.emit('stop');
   }
+  
+  socket.on('devicesList', (devices) => {
+    const list = document.querySelector('#devices-list');
+
+    devices.forEach((device, i) =>  {
+      let button = document.createElement('button');
+      button.innerText = device;
+      button.addEventListener('click', () => {
+        socket.emit('selectDevice', i)
+      });
+      list.appendChild(button);
+    })
+  });
 </script>
