@@ -1,0 +1,28 @@
+.home section a {
+  width: 50%;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home section a {
+  text-decoration: none;
+}
+
+.home section a:first-child {
+  left: 0;
+}
+.home section a:last-child {
+  right: 0;
+}
+.home section h1 {
+  margin-bottom: 0;
+}
+.home section a:hover {
+  background: black;
+  color: white;
+}

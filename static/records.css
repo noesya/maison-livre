@@ -1,0 +1,36 @@
+button {
+  font-family: Soehne, sans-serif;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: none;
+  resize: none;
+  font-size: 22px;
+  font-family: Signifier, serif;
+}
+button:hover {
+  background: black;
+  color: white;
+}
+*:focus {
+  border: none;
+  outline: 0;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding-bottom: 0 !important;
+}

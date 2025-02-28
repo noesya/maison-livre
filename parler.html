@@ -5,20 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parler</title>
   <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="static/records.css">
 </head>
 <body>
-  <button onclick="start()">Start</button>
-  <button onclick="stop()">Stop</button>
+  <section>
+    <h2>C'est quoi un commun ?</h2>
+    <button onclick="start()" id="start">S'enregistrer</button>
+    <button onclick="stop()" id="stop" style="display: none">Terminer</button>
+  </section>
 </body>
 </html>
 
 <script src="/socket.io/socket.io.js"></script>
 <script>
   const socket = io();
+  var startButton = document.getElementById('start'),
+      stopButton = document.getElementById('stop');
+
   function start () {
+    startButton.display = "none";
+    stopButton.display = "block";
     socket.emit('start')
   }
+
   function stop () {
-    socket.emit('stop')
+    startButton.display = "block";
+    stopButton.display = "none";
+    socket.emit('stop');
   }
 </script>

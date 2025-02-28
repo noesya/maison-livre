@@ -1,0 +1,44 @@
+textarea, input, button {
+  border: none;
+  border-radius: none;
+  resize: none;
+  font-size: 22px;
+  font-family: Signifier, serif;
+  /* text-align: center; */
+}
+button {
+  font-family: Soehne, sans-serif;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+button:hover {
+  background: black;
+  color: white;
+}
+input {
+  align-items: end;
+}
+*:focus {
+  border: none;
+  outline: 0;
+}
+
+h2 {
+  margin-top: 10vh;
+}
+
+textarea {
+  width: 100%;
+  max-width: 900px;
+  min-height: 300px;
+  padding-bottom: 50px;
+  display: block;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 30px;
+  padding-bottom: 0 !important;
+}

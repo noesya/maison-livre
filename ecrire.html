@@ -5,22 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Écrire</title>
   <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="static/write.css">
 </head>
 <body>
-  <textarea name="" id="text"></textarea>
-  <input type="text" placeholder="author" id="author">
-  <button onclick="save()">Enregistrer</button>
+  <section>
+    <h2>C'est quoi un commun ?</h2>
+    <textarea name="" id="text" autocomplete="none" placeholder="Votre message"></textarea>
+    <input type="text" placeholder="Votre prénom" id="author">
+    <button onclick="save()">Enregistrer</button>
+  </section>
 </body>
 </html>
 
 <script src="/socket.io/socket.io.js"></script>
 <script>
   const socket = io();
+  const textarea = document.getElementById('text');
+
+  textarea.focus();
 
   function save () {
-    const text = document.getElementById('text').value;
+    const text = textarea.value;
     const author = document.getElementById('author').value;
-    socket.emit('save', {text, author})
+    if (text && author) {
+      socket.emit('save', {text, author});
+      window.location.href = "/";
+    }
   }
 
 </script>
