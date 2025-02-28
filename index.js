@@ -30,6 +30,8 @@ server.listen(port, () => {
   })
 });
 
+app.use('/static', express.static('static'))
+
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
@@ -37,9 +39,11 @@ app.get('/', function (req, res) {
 app.get('/parler', function (req, res) {
   res.sendFile(__dirname + '/parler.html');
 });
+
 app.get('/ecrire', function (req, res) {
   res.sendFile(__dirname + '/ecrire.html');
 });
+
 app.get('/lire', function (req, res) {
   res.sendFile(__dirname + '/lire.html');
 });
