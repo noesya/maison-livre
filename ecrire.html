@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Écrire</title>
+</head>
+<body>
+  <textarea name="" id="text"></textarea>
+  <input type="text" placeholder="author" id="author">
+  <button onclick="save()">Enregistrer</button>
+</body>
+</html>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+
+  function save () {
+    const text = document.getElementById('text').value;
+    const author = document.getElementById('author').value;
+    socket.emit('save', {text, author})
+  }
+
+</script>

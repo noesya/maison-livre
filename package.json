@@ -1,0 +1,16 @@
+{
+  "name": "zombitronweb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@picovoice/pvrecorder-node": "^1.2.6",
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "socket.io": "^4.7.5",
+    "wavefile": "^11.0.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
