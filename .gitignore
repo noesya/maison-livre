@@ -129,5 +129,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-records
-texts
+records/*
+texts/*
